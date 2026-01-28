@@ -56,7 +56,7 @@ export default function Projects() {
             <motion.div
               key={index}
               variants={itemVariants}
-              whileHover={{ y: -8 }}
+              whileHover={{ y: -8, borderColor: '#E11D48' }}
               className="group p-8 bg-background-lighter border border-surface-200 rounded-lg transition-all duration-300 hover:border-primary overflow-hidden"
             >
               {/* Encabezado del proyecto */}
