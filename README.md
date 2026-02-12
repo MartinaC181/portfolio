@@ -10,7 +10,6 @@ Este es mi portfolio personal, diseñado para mostrar mis proyectos y habilidade
 * **TypeScript**
 * **Tailwind CSS**
 * **Framer Motion** (Animaciones)
-* **Embla Carousel** (Galería de fotos)
 
 ## 🚀 Cómo iniciar el proyecto
 
