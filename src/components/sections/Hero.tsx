@@ -3,9 +3,10 @@
 import { motion } from 'framer-motion'
 import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react'
 import GlitchText from '@/components/ui/GlitchText'
-import ProfileCard from '../ui/ProfileCard' // Ahora este import funcionará
-import { containerVariants, itemVariants, buttonVariants } from '@/utils/animations' // Este también
-import { socialLinks } from '@/data/profile' // Y este
+import ProfileCard from '../ui/ProfileCard'
+import CatEasterEgg from '../ui/CatEasterEgg'
+import { containerVariants, itemVariants, buttonVariants } from '@/utils/animations'
+import { socialLinks } from '@/data/profile'
 
 export default function Hero() {
   return (
@@ -35,7 +36,11 @@ export default function Hero() {
 
           <motion.h1 variants={itemVariants} className="text-6xl md:text-7xl font-bold text-surface-50 leading-tight">
             Martina <br />
-            Abigail Canteros
+            <span className="flex items-center">
+              Abigail Canter
+              <CatEasterEgg className="mx-1" />
+              s
+            </span>
           </motion.h1>
 
           <motion.div variants={itemVariants}>

@@ -1,9 +1,10 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Send, CheckCircle, AlertCircle } from 'lucide-react'
-import { useState, FormEvent, ChangeEvent } from 'react'
+import { useState, FormEvent, ChangeEvent, useEffect } from 'react'
 import { containerVariants, itemVariants } from '@/utils/animations'
+import SakuraFall from '../ui/SakuraFall'
 
 interface FormData {
   name: string
@@ -22,6 +23,19 @@ export default function Contact() {
 
   const [status, setStatus] = useState<SubmitStatus>('idle')
   const [statusMessage, setStatusMessage] = useState('')
+  const [showSakura, setShowSakura] = useState(false)
+
+  // Handle sakura animation on success
+  useEffect(() => {
+    if (status === 'success') {
+      setShowSakura(true)
+      const timer = setTimeout(() => {
+        setShowSakura(false)
+      }, 6000) // 6 seconds
+
+      return () => clearTimeout(timer)
+    }
+  }, [status])
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -65,6 +79,11 @@ export default function Contact() {
 
   return (
     <section id="contact" className="relative bg-background overflow-hidden">
+      {/* Sakura Victory Animation */}
+      <AnimatePresence>
+        {showSakura && <SakuraFall />}
+      </AnimatePresence>
+
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background-lighter pointer-events-none" />
       <div
