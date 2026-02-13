@@ -11,7 +11,7 @@ export interface Project {
 export const projectsData: Project[] = [
   {
     title: 'FleteStereo',
-    description: 'Dashboard administrativo con UI modular y tipada. Componentes accesibles y estilado consistente.',
+    description: 'Aplicacion web para gestión de fletes/mudanzas con dashboard administrativo con UI modular y tipada. Componentes accesibles y estilado consistente.',
     technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind', 'shadcn-ui', 'Radix', 'TanStack Query', 'Supabase'],
     links: {
       github: 'https://github.com/MartinaC181/project-fletestereo',
@@ -29,7 +29,7 @@ export const projectsData: Project[] = [
   },
   {
     title: 'MiGymApp',
-    description: 'App móvil con navegación fluida y componentes modernos para gestión de entrenamientos.',
+    description: 'Aplicación móvil para gestión de entrenamientos con navegación fluida y componentes modernos.',
     technologies: ['React Native', 'Expo', 'TypeScript', 'NativeWind', 'i18n', 'Lottie'],
     links: {
       github: 'https://github.com/MartinaC181/MiGymApp',
@@ -38,7 +38,7 @@ export const projectsData: Project[] = [
   },
   {
     title: 'Spa Sentirse Bien',
-    description: 'Aplicación full-stack que integra autenticación, formularios y gestión de estado del cliente.',
+    description: 'Aplicación web que integra autenticación, formularios y gestión de estado del cliente.',
     technologies: ['Next.js 15', 'TypeScript', 'Tailwind', 'NextAuth', 'MongoDB', 'Nodemailer', 'Firebase', 'React Query'],
     links: {
       github: 'https://github.com/MartinaC181/Spa-Sentirse-Bien-',

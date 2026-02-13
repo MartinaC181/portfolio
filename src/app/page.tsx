@@ -2,6 +2,7 @@ import Hero from '@/components/sections/Hero'
 import Skills from '@/components/sections/Skills'
 import Projects from '@/components/sections/Projects'
 import Footer from '@/components/layout/Footer'
+import ScrollToTop from '@/components/ui/ScrollToTop'
 import Moments from '@/components/sections/Moments'
 import Contact from '@/components/sections/Contact'
 
@@ -22,6 +23,7 @@ export default function Home() {
         </div>
       </div>
       <Footer />
+      <ScrollToTop />
     </main>
   );
 }
