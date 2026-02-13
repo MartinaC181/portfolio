@@ -10,6 +10,15 @@ export interface Project {
 
 export const projectsData: Project[] = [
   {
+    title: 'FleteStereo',
+    description: 'Dashboard administrativo con UI modular y tipada. Componentes accesibles y estilado consistente.',
+    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind', 'shadcn-ui', 'Radix', 'TanStack Query', 'Supabase'],
+    links: {
+      github: 'https://github.com/MartinaC181/project-fletestereo',
+      live: 'https://project-fletestereo.vercel.app/',
+    },
+  },
+  {
     title: 'IberApp',
     description: 'Aplicación web que actúa como "traductor cultural" del Noreste Argentino y genera experiencias turísticas personalizadas usando IA.',
     technologies: ['React', 'TypeScript', 'Vite', 'Tailwind', 'Supabase', 'Google Gemini AI'],
@@ -33,15 +42,6 @@ export const projectsData: Project[] = [
     technologies: ['Next.js 15', 'TypeScript', 'Tailwind', 'NextAuth', 'MongoDB', 'Nodemailer', 'Firebase', 'React Query'],
     links: {
       github: 'https://github.com/MartinaC181/Spa-Sentirse-Bien-',
-      live: '#',
-    },
-  },
-  {
-    title: 'FleteStereo',
-    description: 'Dashboard administrativo con UI modular y tipada. Componentes accesibles y estilado consistente.',
-    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind', 'shadcn-ui', 'Radix', 'TanStack Query', 'Supabase'],
-    links: {
-      github: 'https://github.com/MartinaC181/project-fletestereo',
       live: '#',
     },
   },

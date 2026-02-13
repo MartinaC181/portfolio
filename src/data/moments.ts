@@ -1,51 +1,57 @@
 export const moments = [
   {
-    id: 1,
-    title: "Equipo Ganador - 2° Puesto",
-    category: "Hackathon",
-    src: "/moments/Hackathon6.jpg", // Foto grupal con los cheques
-    type: "image"
-  },
-  {
-    id: 2,
-    title: "Speaker en Demo Day",
-    category: "Presentación",
-    src: "/moments/Hackathon3.jpg", // En el escenario hablando
-    type: "image"
-  },
-  {
-    id: 3,
-    title: "Certificado Node.js + React",
-    category: "Educación",
-    src: "/moments/Bootcamp3.0.jpg", // Certificado Digital Azul
-    type: "image"
-  },
-  {
-    id: 4,
-    title: "Proyecto IberApp",
-    category: "Logro",
-    src: "/moments/Hackathon8.jpg", // Foto del certificado en mano
-    type: "image"
-  },
-  {
     id: 5,
     title: "Presentación de Proyecto",
     category: "Bootcamp",
-    src: "/moments/Bootcamp2.jpg", // Foto de la pantalla/proyector
-    type: "image"
+    src: "/moments/Bootcamp2.jpg",
+    type: "image",
   },
   {
     id: 6,
-    title: "Live Coding & Debugging",
-    category: "Work",
-    src: "/moments/Bootcamp3.jpg", // Foto trabajando en la laptop
-    type: "image"
+    title: "Entrega de Certificados",
+    category: "Bootcamp",
+    src: "/moments/Bootcamp4.jpg",
+    type: "image",
+  },
+  {
+    id: 8,
+    title: "Progreso en el Camino",
+    category: "Bootcamp",
+    src: "/moments/Bootcamp5.jpg",
+    type: "image",
+  },
+  {
+    id: 9,
+    title: "Culminación del Bootcamp",
+    category: "Bootcamp",
+    src: "/moments/Bootcamp6.jpg",
+    type: "image",
+  },
+  {
+    id: 1,
+    title: "Equipo Ganador - 2° Puesto",
+    category: "Hackathon",
+    src: "/moments/Hackathon6.jpg", 
+  },
+  {
+    id: 2,
+    title: "Explicando el Proyecto",
+    category: "Presentación",
+    src: "/moments/Hackathon3.jpg", 
+    type: "image",
+  },
+  {
+    id: 3,
+    title: "Colaboración en Equipo",
+    category: "Hackathon",
+    src: "/moments/Hackathon4.jpg",
+    type: "image",
   },
   {
     id: 7,
-    title: "Distinción Especial",
-    category: "Award",
-    src: "/moments/Hackathon7.jpg", // Foto vertical con el certificado
-    type: "image"
-  }
+    title: "Certificado de Participación",
+    category: "Hackathon",
+    src: "/moments/Hackathon7.jpg", 
+    type: "image",
+  },
 ];

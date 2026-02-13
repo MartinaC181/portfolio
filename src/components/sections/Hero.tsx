@@ -3,9 +3,9 @@
 import { motion } from 'framer-motion'
 import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react'
 import GlitchText from '@/components/ui/GlitchText'
-import ProfileCard from '../ui/ProfileCard'
-import { containerVariants, itemVariants, buttonVariants } from '@/utils/animations'
-import { socialLinks } from '@/data/profile'
+import ProfileCard from '../ui/ProfileCard' // Ahora este import funcionará
+import { containerVariants, itemVariants, buttonVariants } from '@/utils/animations' // Este también
+import { socialLinks } from '@/data/profile' // Y este
 
 export default function Hero() {
   return (
@@ -35,13 +35,13 @@ export default function Hero() {
 
           <motion.h1 variants={itemVariants} className="text-6xl md:text-7xl font-bold text-surface-50 leading-tight">
             Martina <br />
-            <span className="text-primary">Abigail Canteros</span>
+            Abigail Canteros
           </motion.h1>
 
           <motion.div variants={itemVariants}>
-             <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                <GlitchText text="Full-Stack Developer" />
-             </h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              <GlitchText text="Full-Stack Developer" />
+            </h2>
           </motion.div>
 
           <motion.p variants={itemVariants} className="text-lg text-surface-100 max-w-md leading-relaxed">
@@ -54,19 +54,19 @@ export default function Hero() {
 
           {/* Action Buttons */}
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 pt-4">
-            <motion.button
-              whileHover={{ y: -8, color: '#E11D48' }}
+            <motion.a
+              href="#projects"
+              whileHover={{ y: -4, scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               variants={buttonVariants}
-              className="px-8 py-3 bg-primary hover:bg-primary-hover text-white font-semibold rounded-lg transition-colors duration-300 flex items-center justify-center gap-2 group"
+              className="px-8 py-3 text-white hover:text-primary font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer"
             >
               Ver Proyectos
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
+            </motion.a>
 
             <motion.a
-              href={socialLinks.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#contact"
               whileHover={{ y: -8, borderColor: '#E11D48' }}
               variants={buttonVariants}
               className="px-8 py-3 border-2 border-surface-200 text-surface-100 hover:text-primary hover:border-primary font-semibold rounded-lg transition-all duration-300 flex items-center justify-center"
@@ -80,14 +80,13 @@ export default function Hero() {
             {[
               { icon: Github, href: socialLinks.github },
               { icon: Linkedin, href: socialLinks.linkedin },
-              { icon: Mail, href: socialLinks.email }
             ].map((social, index) => (
               <motion.a
                 key={index}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.2 }}
+                whileHover={{ scale: 1.2, color: '#E11D48' }}
                 className="text-surface-100 hover:text-primary transition-colors duration-300"
               >
                 <social.icon className="w-6 h-6" />
@@ -96,7 +95,7 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* RIGHT COLUMN: Profile Card (Extracted) */}
+        {/* RIGHT COLUMN: Profile Card */}
         <ProfileCard />
 
       </motion.div>

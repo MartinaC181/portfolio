@@ -1,9 +1,10 @@
-export const softSkills = ['Proactividad', 'Resiliencia', 'Inglés B2'];
+export const softSkills = ['Proactividad', 'Resiliencia', 'Trabajo en equipo', 'Adaptabilidad'];
+export const idioms = ['Inglés B2'];
 
 export const education = [
   { 
     title: 'Tecnicatura Universitaria en Programación', 
-    institution: 'UTN FRR', 
+    institution: 'UTN FRRe', 
     year: '2024 - 2025' 
   },
   { 
@@ -21,5 +22,4 @@ export const education = [
 export const socialLinks = {
   github: "https://github.com/MartinaC181",
   linkedin: "https://linkedin.com/in/martina-abigail-canteros",
-  email: "mailto:martiinacanteros@gmail.com"
 };

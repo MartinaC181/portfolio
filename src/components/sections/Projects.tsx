@@ -7,7 +7,7 @@ import { containerVariants } from '@/utils/animations'
 
 export default function Projects() {
   return (
-    <section className="py-20 px-6 md:px-8 bg-background">
+    <section id="projects" className="py-20 px-6 md:px-8 bg-background">
       <div className="max-w-7xl mx-auto">
         {/* Título de Sección */}
         <motion.div
