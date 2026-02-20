@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react'
+import { Github, Linkedin, ArrowRight } from 'lucide-react'
 import GlitchText from '@/components/ui/GlitchText'
 import ProfileCard from '../ui/ProfileCard'
 import CatEasterEgg from '../ui/CatEasterEgg'
@@ -30,15 +30,18 @@ export default function Hero() {
       >
         {/* LEFT COLUMN: Presentation */}
         <motion.div className="flex flex-col items-start text-left space-y-6">
+          {/* ...código anterior... */}
           <motion.p variants={itemVariants} className="text-lg text-surface-100">
             Hola, soy
           </motion.p>
 
           <motion.h1 variants={itemVariants} className="text-6xl md:text-7xl font-bold text-surface-50 leading-tight">
             Martina <br />
-            <span className="flex items-center">
-              Abigail Canter
-              <CatEasterEgg className="mx-1" />
+            Abigail{" "}
+            <span className="inline-flex items-baseline whitespace-nowrap">
+              Canter
+              {/* Le damos el tamaño en "em" para que crezca o se achique junto con la fuente */}
+              <CatEasterEgg className="w-[0.8em] h-[0.8em] ml-[0.05em] -mr-[0.1em]" />
               s
             </span>
           </motion.h1>
