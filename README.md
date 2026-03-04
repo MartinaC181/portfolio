@@ -2,7 +2,7 @@
 
 Este es mi portfolio personal, diseñado para mostrar mis proyectos y habilidades como Desarrolladora Full Stack. Está enfocado en un diseño moderno, limpio y una experiencia de usuario fluida.
 
-**🔗 Demo:** https://portfolio-azure-two-63.vercel.app/
+**🔗 Demo:** https://martinacanteros.vercel.app
 
 ## 🛠 Tecnologías
 
