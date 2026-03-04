@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 
 import { moments } from '@/data/moments'
@@ -16,10 +17,26 @@ import {
 } from '@/components/ui/dialog'
 import Autoplay from 'embla-carousel-autoplay'
 import { Image as ImageIcon } from 'lucide-react'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
+import { useLanguage } from '@/context/LanguageContext'
 
 export default function Moments() {
   const plugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }))
+  
+  const { language } = useLanguage()
+
+  const t = {
+    es: {
+      title: "Galería de Momentos",
+      subtitle: "Explora mis mejores momentos académicos y profesionales",
+      viewingImage: "Viendo imagen:"
+    },
+    en: {
+      title: "Moments Gallery",
+      subtitle: "Explore my best academic and professional moments",
+      viewingImage: "Viewing image:"
+    }
+  }
 
   return (
     <section className="bg-background">
@@ -29,10 +46,10 @@ export default function Moments() {
         <div className="mb-12 text-center">
           <h3 className="text-3xl font-bold text-surface-50 flex items-center justify-center gap-3 mb-4">
             <span className="w-3 h-3 bg-primary rounded-full animate-pulse" />
-            Galería de Momentos
+            {t[language].title}
           </h3>
           <p className="text-base md:text-lg text-surface-100">
-            Explora mis mejores momentos académicos y profesionales
+            {t[language].subtitle}
           </p>
         </div>
 
@@ -44,7 +61,7 @@ export default function Moments() {
             className="w-full"
           >
             <CarouselContent className="-ml-2 md:-ml-4">
-              {moments.map((item, index) => (
+              {moments[language].map((item, index) => (
                 <CarouselItem key={index} className="pl-2 md:pl-4 basis-full md:basis-2/3">
                   <Dialog>
                     <DialogTrigger asChild>
@@ -81,7 +98,7 @@ export default function Moments() {
                     {/* Lightbox Modal */}
                     <DialogContent className="max-w-2xl w-full bg-background border border-surface-200 shadow-xl p-0 rounded-2xl">
                       <DialogTitle className="sr-only">
-                        Viendo imagen: {item.title}
+                        {t[language].viewingImage} {item.title}
                       </DialogTitle>
                       <div className="relative w-full max-h-[70vh] overflow-hidden rounded-2xl">
                         <img

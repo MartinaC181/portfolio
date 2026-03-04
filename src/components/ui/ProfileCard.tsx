@@ -1,32 +1,67 @@
 'use client'
+
 import { motion } from 'framer-motion'
 import { education, softSkills, idioms } from '@/data/profile'
 import { itemVariants } from '@/utils/animations'
+// 👇 1. Importamos tu hook de idioma
+import { useLanguage } from '@/context/LanguageContext'
 
 export default function ProfileCard() {
+  const { language } = useLanguage()
+
+  const t = {
+    es: {
+      title: "Sobre Mí",
+      subtitle: "Más allá del código",
+      bio1_start: "Soy ",
+      bio1_highlight: "Técnica Universitaria en Programación (UTN)",
+      bio1_end: " e Instructora de Inglés. Me apasiona crear soluciones tecnológicas que no solo funcionen, sino que impacten.",
+      bio2_start: "Cuando no estoy programando, disfruto explorando el mundo del ",
+      bio2_highlight: "Data Science",
+      bio2_end: ", escuchando música o compartiendo conocimientos con la comunidad tech.",
+      educationTitle: "Formación",
+      softSkillsTitle: "Habilidades Blandas",
+      languagesTitle: "Idiomas"
+    },
+    en: {
+      title: "About Me",
+      subtitle: "Beyond the code",
+      bio1_start: "I am a ",
+      bio1_highlight: "University Technician in Programming (UTN)",
+      bio1_end: " and an English Instructor. I am passionate about creating tech solutions that not only work but also make an impact.",
+      bio2_start: "When I'm not coding, I enjoy exploring the world of ",
+      bio2_highlight: "Data Science",
+      bio2_end: ", listening to music, or sharing knowledge with the tech community.",
+      educationTitle: "Education",
+      softSkillsTitle: "Soft Skills",
+      languagesTitle: "Languages"
+    }
+  }
+
   return (
     <motion.div
       variants={itemVariants}
       className="p-8 bg-background-lighter border border-surface-200 rounded-2xl h-fit"
     >
       <div className="text-center mb-10">
-        <h3 className="text-3xl font-bold text-surface-50">Sobre Mí</h3>
+        <h3 className="text-3xl font-bold text-surface-50">{t[language].title}</h3>
       </div>
 
-      {/* GRID ESTRUCTURAL 
-         Usamos gap-y-10 para separar bien las filas visualmente 
-      */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
         
         {/* --- FILA 1, IZQUIERDA: Bio --- */}
         <div>
-          <h4 className="text-2xl font-bold text-surface-50 mb-6">Más allá del código</h4>
+          <h4 className="text-2xl font-bold text-surface-50 mb-6">{t[language].subtitle}</h4>
           <div className="text-surface-100 leading-relaxed text-sm space-y-4">
             <p>
-              Soy <span className="text-primary font-semibold">Técnica Universitaria en Programación (UTN)</span> e Instructora de Inglés. Me apasiona crear soluciones tecnológicas que no solo funcionen, sino que impacten.
+              {t[language].bio1_start}
+              <span className="text-primary font-semibold">{t[language].bio1_highlight}</span>
+              {t[language].bio1_end}
             </p>
             <p>
-              Cuando no estoy programando, disfruto explorando el mundo del <span className="text-surface-50 font-medium">Data Science</span>, escuchando música o compartiendo conocimientos con la comunidad tech.
+              {t[language].bio2_start}
+              <span className="text-surface-50 font-medium">{t[language].bio2_highlight}</span>
+              {t[language].bio2_end}
             </p>
           </div>
         </div>
@@ -34,12 +69,11 @@ export default function ProfileCard() {
         {/* --- FILA 1, DERECHA: Formación --- */}
         <div>
           <h5 className="text-xs font-semibold text-surface-100 mb-6 uppercase tracking-widest">
-            Formación
+            {t[language].educationTitle}
           </h5>
           <div className="space-y-8 relative pl-6 border-l-2 border-surface-200 ml-2"> 
-            {education.map((item, index) => (
+            {education[language].map((item, index) => (
               <div key={index} className="relative">
-                {/* Punto de la línea de tiempo */}
                 <div className="absolute -left-[31px] top-1 w-4 h-4 bg-primary rounded-full border-4 border-background" />
                 <div>
                   <p className="text-sm text-surface-50 font-bold mb-1">{item.title}</p>
@@ -54,10 +88,10 @@ export default function ProfileCard() {
         {/* --- FILA 2, IZQUIERDA: Habilidades Blandas --- */}
         <div>
           <h5 className="text-xs font-semibold text-surface-100 mb-4 uppercase tracking-widest">
-            Habilidades Blandas
+            {t[language].softSkillsTitle}
           </h5>
           <div className="flex flex-wrap gap-3">
-            {softSkills.map((skill, index) => (
+            {softSkills[language].map((skill, index) => (
               <motion.span
                 key={index}
                 whileHover={{ y: -4, borderColor: '#E11D48' }}
@@ -72,10 +106,10 @@ export default function ProfileCard() {
         {/* --- FILA 2, DERECHA: Idiomas --- */}
         <div>
           <h5 className="text-xs font-semibold text-surface-100 mb-4 uppercase tracking-widest">
-            Idiomas
+            {t[language].languagesTitle}
           </h5>
           <div className="flex flex-wrap gap-3">
-            {idioms.map((idiom, index) => (
+            {idioms[language].map((idiom, index) => (
               <motion.span
                 key={index}
                 whileHover={{ y: -4, borderColor: '#E11D48' }}

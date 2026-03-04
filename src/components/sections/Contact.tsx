@@ -5,6 +5,8 @@ import { Send, CheckCircle, AlertCircle } from 'lucide-react'
 import { useState, FormEvent, ChangeEvent, useEffect } from 'react'
 import { containerVariants, itemVariants } from '@/utils/animations'
 import SakuraFall from '../ui/SakuraFall'
+// 👇 1. Importamos el contexto de idioma
+import { useLanguage } from '@/context/LanguageContext'
 
 interface FormData {
   name: string
@@ -25,9 +27,47 @@ export default function Contact() {
   const [statusMessage, setStatusMessage] = useState('')
   const [showSakura, setShowSakura] = useState(false)
 
+  // 👇 2. Obtenemos el idioma actual
+  const { language } = useLanguage()
+
+  // 👇 3. Diccionario con todos los textos del formulario (incluyendo alertas)
+  const t = {
+    es: {
+      title: "Contactame",
+      subtitle: "Estoy siempre abierta a nuevas oportunidades y colaboraciones.",
+      nameLabel: "Nombre",
+      namePlaceholder: "Tu nombre",
+      emailLabel: "Correo Electrónico",
+      emailPlaceholder: "tu@email.com",
+      messageLabel: "Mensaje",
+      messagePlaceholder: "Tu mensaje aquí...",
+      sending: "Enviando...",
+      sendBtn: "Enviar Mensaje",
+      successMsg: "Mensaje enviado exitosamente. ¡Te responderé pronto!",
+      errorMsg: "Hubo un error al enviar el mensaje. Intenta nuevamente.",
+      connErrorMsg: "Error de conexión. Por favor intenta más tarde."
+    },
+    en: {
+      title: "Contact Me",
+      subtitle: "I'm always open to new opportunities and collaborations.",
+      nameLabel: "Name",
+      namePlaceholder: "Your name",
+      emailLabel: "Email Address",
+      emailPlaceholder: "you@email.com",
+      messageLabel: "Message",
+      messagePlaceholder: "Your message here...",
+      sending: "Sending...",
+      sendBtn: "Send Message",
+      successMsg: "Message sent successfully. I'll get back to you soon!",
+      errorMsg: "There was an error sending the message. Please try again.",
+      connErrorMsg: "Connection error. Please try again later."
+    }
+  }
+
   // Handle sakura animation on success
   useEffect(() => {
     if (status === 'success') {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setShowSakura(true)
       const timer = setTimeout(() => {
         setShowSakura(false)
@@ -59,20 +99,20 @@ export default function Contact() {
         body: JSON.stringify(formData),
       })
 
-      const data = await response.json()
+      await response.json()
 
       if (response.ok) {
         setStatus('success')
-        setStatusMessage(data.message || 'Mensaje enviado exitosamente. ¡Te responderé pronto!')
+        setStatusMessage(t[language].successMsg) // Mensaje traducido
         setFormData({ name: '', email: '', message: '' })
         setTimeout(() => setStatus('idle'), 5000)
       } else {
         setStatus('error')
-        setStatusMessage(data.message || 'Hubo un error al enviar el mensaje. Intenta nuevamente.')
+        setStatusMessage(t[language].errorMsg) // Mensaje traducido
       }
     } catch (error) {
       setStatus('error')
-      setStatusMessage('Error de conexión. Por favor intenta más tarde.')
+      setStatusMessage(t[language].connErrorMsg) // Mensaje traducido
       console.error('Error:', error)
     }
   }
@@ -105,10 +145,10 @@ export default function Contact() {
         {/* Header */}
         <motion.div variants={itemVariants} className="mb-12 text-center">
           <h2 className="text-3xl font-bold text-surface-50 mb-4">
-            Contactame
+            {t[language].title}
           </h2>
           <p className="text-base md:text-lg text-surface-100">
-            Estoy siempre abierta a nuevas oportunidades y colaboraciones.
+            {t[language].subtitle}
           </p>
         </motion.div>
 
@@ -121,7 +161,7 @@ export default function Contact() {
           {/* Name Input */}
           <motion.div variants={itemVariants} className="mb-6">
             <label htmlFor="name" className="block text-surface-50 font-medium mb-2">
-              Nombre
+              {t[language].nameLabel}
             </label>
             <input
               type="text"
@@ -130,7 +170,7 @@ export default function Contact() {
               value={formData.name}
               onChange={handleChange}
               required
-              placeholder="Tu nombre"
+              placeholder={t[language].namePlaceholder}
               className="w-full px-4 py-3 bg-surface-100/10 border border-surface-200 rounded-lg text-surface-50 placeholder-surface-100 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/50 transition-all duration-300"
             />
           </motion.div>
@@ -138,7 +178,7 @@ export default function Contact() {
           {/* Email Input */}
           <motion.div variants={itemVariants} className="mb-6">
             <label htmlFor="email" className="block text-surface-50 font-medium mb-2">
-              Correo Electrónico
+              {t[language].emailLabel}
             </label>
             <input
               type="email"
@@ -147,7 +187,7 @@ export default function Contact() {
               value={formData.email}
               onChange={handleChange}
               required
-              placeholder="tu@email.com"
+              placeholder={t[language].emailPlaceholder}
               className="w-full px-4 py-3 bg-surface-100/10 border border-surface-200 rounded-lg text-surface-50 placeholder-surface-100 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/50 transition-all duration-300"
             />
           </motion.div>
@@ -155,7 +195,7 @@ export default function Contact() {
           {/* Message Input */}
           <motion.div variants={itemVariants} className="mb-6">
             <label htmlFor="message" className="block text-surface-50 font-medium mb-2">
-              Mensaje
+              {t[language].messageLabel}
             </label>
             <textarea
               id="message"
@@ -163,7 +203,7 @@ export default function Contact() {
               value={formData.message}
               onChange={handleChange}
               required
-              placeholder="Tu mensaje aquí..."
+              placeholder={t[language].messagePlaceholder}
               rows={5}
               className="w-full px-4 py-3 bg-surface-100/10 border border-surface-200 rounded-lg text-surface-50 placeholder-surface-100 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/50 transition-all duration-300 resize-none"
             />
@@ -185,11 +225,11 @@ export default function Contact() {
                   transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
                   className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
                 />
-                Enviando...
+                {t[language].sending}
               </>
             ) : (
               <>
-                Enviar Mensaje
+                {t[language].sendBtn}
                 <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </>
             )}

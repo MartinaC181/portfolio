@@ -2,13 +2,64 @@
 
 import { motion } from 'framer-motion'
 import { Github, Linkedin, ArrowRight } from 'lucide-react'
+import { useEffect, useRef } from 'react'
 import GlitchText from '@/components/ui/GlitchText'
 import ProfileCard from '../ui/ProfileCard'
 import CatEasterEgg from '../ui/CatEasterEgg'
 import { containerVariants, itemVariants, buttonVariants } from '@/utils/animations'
 import { socialLinks } from '@/data/profile'
+import { useLanguage } from '@/context/LanguageContext'
 
 export default function Hero() {
+  const requestRef = useRef<number>(0)
+
+  const stopScrolling = () => {
+    if (requestRef.current) {
+      cancelAnimationFrame(requestRef.current)
+    }
+    window.removeEventListener('wheel', stopScrolling)
+    window.removeEventListener('touchstart', stopScrolling)
+    window.removeEventListener('mousedown', stopScrolling)
+  }
+
+  const handleSlowScroll = () => {
+    stopScrolling()
+    window.addEventListener('wheel', stopScrolling, { passive: true })
+    window.addEventListener('touchstart', stopScrolling, { passive: true })
+    window.addEventListener('mousedown', stopScrolling, { passive: true })
+
+    const scroll = () => {
+      window.scrollBy(0, 4) 
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+        stopScrolling()
+      } else {
+        requestRef.current = requestAnimationFrame(scroll)
+      }
+    }
+    requestRef.current = requestAnimationFrame(scroll)
+  }
+
+  useEffect(() => {
+    return () => stopScrolling()
+  }, [])
+
+  const { language } = useLanguage()
+
+  const t = {
+    es: {
+      greeting: "Hola, soy",
+      description: "Creo soluciones web y móviles robustas, escalables y centradas en la experiencia de usuario.",
+      projectsBtn: "Ver Proyectos",
+      contactBtn: "Contactar",
+    },
+    en: {
+      greeting: "Hi, I'm",
+      description: "I build robust, scalable, and user-centric web and mobile solutions.",
+      projectsBtn: "View Projects",
+      contactBtn: "Contact Me",
+    }
+  }
+
   return (
     <section className="relative min-h-[90vh] bg-background flex items-center justify-center overflow-hidden py-20">
       {/* Background Effects */}
@@ -30,9 +81,9 @@ export default function Hero() {
       >
         {/* LEFT COLUMN: Presentation */}
         <motion.div className="flex flex-col items-start text-left space-y-6">
-          {/* ...código anterior... */}
+          
           <motion.p variants={itemVariants} className="text-lg text-surface-100">
-            Hola, soy
+            {t[language].greeting}
           </motion.p>
 
           <motion.h1 variants={itemVariants} className="text-6xl md:text-7xl font-bold text-surface-50 leading-tight">
@@ -40,8 +91,7 @@ export default function Hero() {
             Abigail{" "}
             <span className="inline-flex items-baseline whitespace-nowrap">
               Canter
-              {/* Le damos el tamaño en "em" para que crezca o se achique junto con la fuente */}
-              <CatEasterEgg className="w-[0.8em] h-[0.8em] ml-[0.05em] -mr-[0.1em]" />
+              <CatEasterEgg className="w-[0.8em] h-[0.8em] ml-[0.05em] -mr-[0.15em]" />
               s
             </span>
           </motion.h1>
@@ -53,7 +103,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.p variants={itemVariants} className="text-lg text-surface-100 max-w-md leading-relaxed">
-            Creo <span className="text-primary font-semibold">soluciones web y móviles</span> robustas, escalables y centradas en la experiencia de usuario.
+            {t[language].description}
           </motion.p>
 
           <motion.p variants={itemVariants} className="text-surface-100 flex items-center gap-2">
@@ -69,7 +119,7 @@ export default function Hero() {
               variants={buttonVariants}
               className="px-8 py-3 text-white hover:text-primary font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer"
             >
-              Ver Proyectos
+              {t[language].projectsBtn}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </motion.a>
 
@@ -79,7 +129,7 @@ export default function Hero() {
               variants={buttonVariants}
               className="px-8 py-3 border-2 border-surface-200 text-surface-100 hover:text-primary hover:border-primary font-semibold rounded-lg transition-all duration-300 flex items-center justify-center"
             >
-              Contactar
+              {t[language].contactBtn}
             </motion.a>
           </motion.div>
 
@@ -112,9 +162,10 @@ export default function Hero() {
       <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        onClick={handleSlowScroll}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer z-20"
       >
-        <div className="w-6 h-10 border-2 border-surface-100 rounded-full flex items-start justify-center p-2">
+        <div className="w-6 h-10 border-2 border-surface-100 rounded-full flex items-start justify-center p-2 hover:border-primary hover:bg-surface-200/20 transition-all duration-300">
           <div className="w-1 h-3 bg-primary rounded-full" />
         </div>
       </motion.div>

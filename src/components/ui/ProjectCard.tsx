@@ -2,9 +2,9 @@
 
 import { motion } from 'framer-motion'
 import { Github, ExternalLink } from 'lucide-react'
-import { itemVariants } from '@/utils/animations' // Reutilizamos la animación
+import { itemVariants } from '@/utils/animations'
+import { useLanguage } from '@/context/LanguageContext'
 
-// Definimos qué forma tienen los datos (TypeScript)
 interface ProjectProps {
   title: string
   description: string
@@ -16,25 +16,29 @@ interface ProjectProps {
 }
 
 export default function ProjectCard({ project }: { project: ProjectProps }) {
+  const { language } = useLanguage()
+
+  const t = {
+    es: { codeBtn: "Código", liveBtn: "Live" },
+    en: { codeBtn: "Code", liveBtn: "Live" }
+  }
+
   return (
     <motion.div
       variants={itemVariants}
       whileHover={{ y: -8, borderColor: '#E11D48' }}
       className="group p-8 bg-background-lighter border border-surface-200 rounded-lg transition-all duration-300 hover:border-primary overflow-hidden flex flex-col h-full"
     >
-      {/* Encabezado */}
       <div className="mb-4">
         <h3 className="text-2xl font-bold text-surface-50 group-hover:text-primary transition-colors">
           {project.title}
         </h3>
       </div>
 
-      {/* Descripción (flex-grow para empujar botones abajo) */}
       <p className="text-surface-100 text-base leading-relaxed mb-6 flex-grow">
         {project.description}
       </p>
 
-      {/* Tags */}
       <div className="flex flex-wrap gap-2 mb-6">
         {project.technologies.map((tech, index) => (
           <span
@@ -46,7 +50,6 @@ export default function ProjectCard({ project }: { project: ProjectProps }) {
         ))}
       </div>
 
-      {/* Botones */}
       <div className="flex gap-4 pt-6 border-t border-surface-200 mt-auto">
         <motion.a
           href={project.links.github}
@@ -56,7 +59,7 @@ export default function ProjectCard({ project }: { project: ProjectProps }) {
           className="flex items-center gap-2 text-surface-100 hover:text-primary transition-colors"
         >
           <Github className="w-5 h-5" />
-          <span className="text-sm font-medium">Código</span>
+          <span className="text-sm font-medium">{t[language].codeBtn}</span>
         </motion.a>
         
         {project.links.live && project.links.live !== '#' && (
@@ -68,7 +71,7 @@ export default function ProjectCard({ project }: { project: ProjectProps }) {
             className="flex items-center gap-2 text-surface-100 hover:text-primary transition-colors"
           >
             <ExternalLink className="w-5 h-5" />
-            <span className="text-sm font-medium">Live</span>
+            <span className="text-sm font-medium">{t[language].liveBtn}</span>
           </motion.a>
         )}
       </div>
