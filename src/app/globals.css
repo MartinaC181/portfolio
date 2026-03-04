@@ -1,14 +1,117 @@
 @import "tailwindcss";
 
-html, body {
-  background-color: #09090B;
-  color: #FAFAFA;
+/* 👇 Mantenemos el plugin necesario */
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+/* 👇 Smooth Scroll */
+html {
+  scroll-behavior: smooth;
 }
 
+:root {
+  /* Fondo oscuro original (#09090B) */
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+
+  /* 🔥 TU ROJO ORIGINAL (#E11D48) 🔥 */
+  --primary: 343 76% 50%;
+  --primary-foreground: 0 0% 98%;
+
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --ring: 343 76% 50%; 
+
+  --radius: 0.75rem;
+}
+
+/* Forzamos el modo oscuro por defecto */
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 343 76% 50%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --ring: 343 76% 50%;
+}
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  
+  /* 👇 AQUÍ ESTÁ LA MAGIA DEL SCROLL SUAVE */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* --- TUS ESTILOS GLITCH INTACTOS --- */
 .glitch {
   position: relative;
   display: inline-block;
-  color: #E11D48; 
+  color: #E11D48;
   font-size: 1.1em; 
 }
 
@@ -16,10 +119,9 @@ html, body {
   content: attr(data-text);
   position: absolute;
   top: 0;
-  left: 0;
+  left: 2px;
   width: 100%;
   height: 100%;
-  left: 2px;
   text-shadow: -2px 0 #cf6a6a; 
   background: #09090B;
   overflow: hidden;
@@ -31,11 +133,9 @@ html, body {
   content: attr(data-text);
   position: absolute;
   top: 0;
-  left: 0;
+  left: -2px;
   width: 100%;
   height: 100%;
-  left: -2px;
-  /* 3. Sombra ROJA para reforzar el glitch */
   text-shadow: -2px 0 #E11D48; 
   background: #09090B;
   overflow: hidden;
@@ -43,7 +143,6 @@ html, body {
   animation: noise-anim 2s infinite linear alternate-reverse;
 }
 
-/* Las animaciones que cortan el texto (Keyframes) */
 @keyframes noise-anim {
   0% { clip: rect(11px, 9999px, 34px, 0); }
   5% { clip: rect(83px, 9999px, 8px, 0); }
