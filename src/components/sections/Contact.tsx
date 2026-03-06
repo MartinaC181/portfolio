@@ -5,7 +5,6 @@ import { Send, CheckCircle, AlertCircle } from 'lucide-react'
 import { useState, FormEvent, ChangeEvent, useEffect } from 'react'
 import { containerVariants, itemVariants } from '@/utils/animations'
 import SakuraFall from '../ui/SakuraFall'
-// 👇 1. Importamos el contexto de idioma
 import { useLanguage } from '@/context/LanguageContext'
 
 interface FormData {
@@ -27,10 +26,8 @@ export default function Contact() {
   const [statusMessage, setStatusMessage] = useState('')
   const [showSakura, setShowSakura] = useState(false)
 
-  // 👇 2. Obtenemos el idioma actual
   const { language } = useLanguage()
 
-  // 👇 3. Diccionario con todos los textos del formulario (incluyendo alertas)
   const t = {
     es: {
       title: "Contactame",
@@ -45,7 +42,8 @@ export default function Contact() {
       sendBtn: "Enviar Mensaje",
       successMsg: "Mensaje enviado exitosamente. ¡Te responderé pronto!",
       errorMsg: "Hubo un error al enviar el mensaje. Intenta nuevamente.",
-      connErrorMsg: "Error de conexión. Por favor intenta más tarde."
+      connErrorMsg: "Error de conexión. Por favor intenta más tarde.",
+      minCharError: "El mensaje debe tener al menos 10 caracteres." // 👈 Traducción añadida
     },
     en: {
       title: "Contact Me",
@@ -60,7 +58,8 @@ export default function Contact() {
       sendBtn: "Send Message",
       successMsg: "Message sent successfully. I'll get back to you soon!",
       errorMsg: "There was an error sending the message. Please try again.",
-      connErrorMsg: "Connection error. Please try again later."
+      connErrorMsg: "Connection error. Please try again later.",
+      minCharError: "The message must be at least 10 characters long." // 👈 Traducción añadida
     }
   }
 
@@ -87,6 +86,14 @@ export default function Contact() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+
+    // 👈 1. Validación rápida en el frontend
+    if (formData.message.trim().length < 10) {
+      setStatus('error')
+      setStatusMessage(t[language].minCharError)
+      return 
+    }
+
     setStatus('loading')
     setStatusMessage('')
 
@@ -99,20 +106,22 @@ export default function Contact() {
         body: JSON.stringify(formData),
       })
 
-      await response.json()
+      // 👈 2. Guardamos la respuesta del backend
+      const data = await response.json()
 
       if (response.ok) {
         setStatus('success')
-        setStatusMessage(t[language].successMsg) // Mensaje traducido
+        setStatusMessage(t[language].successMsg) 
         setFormData({ name: '', email: '', message: '' })
         setTimeout(() => setStatus('idle'), 5000)
       } else {
         setStatus('error')
-        setStatusMessage(t[language].errorMsg) // Mensaje traducido
+        // 👈 3. Mostramos el mensaje exacto que mande el backend, o el genérico si falla algo raro
+        setStatusMessage(data.message || t[language].errorMsg) 
       }
     } catch (error) {
       setStatus('error')
-      setStatusMessage(t[language].connErrorMsg) // Mensaje traducido
+      setStatusMessage(t[language].connErrorMsg) 
       console.error('Error:', error)
     }
   }
