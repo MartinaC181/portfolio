@@ -12,8 +12,7 @@ export default function CatEasterEgg({ className = '' }: CatEasterEggProps) {
 
   return (
     <motion.div
-      // 👇 AQUÍ aplicamos el className dinámico y forzamos la alineación base
-      className={`relative inline-flex items-baseline translate-y-[0.1em] ${className}`}
+      className={`relative inline-flex items-baseline translate-y-[0.1em] -translate-x-[0.04em] ${className}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.5 }}
@@ -31,7 +30,6 @@ export default function CatEasterEgg({ className = '' }: CatEasterEggProps) {
           viewBox="0 0 48 48"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          // 👇 w-full y h-full hacen que respete el tamaño que le pasamos desde el Hero
           className="w-full h-full drop-shadow-lg"
         >
           {/* Cabeza */}
