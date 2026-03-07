@@ -13,7 +13,7 @@ export const education = {
     { 
       title: 'Tecnicatura Universitaria en Programación', 
       institution: 'UTN FRRe', 
-      year: '2024 - 2026' 
+      year: '2024 - 2025' 
     },
     { 
       title: 'Node.js + React Bootcamp', 
@@ -30,7 +30,7 @@ export const education = {
     { 
       title: 'University Technician in Programming', 
       institution: 'UTN FRRe', 
-      year: '2024 - 2026' 
+      year: '2024 - 2025' 
     },
     { 
       title: 'Node.js + React Bootcamp', 
