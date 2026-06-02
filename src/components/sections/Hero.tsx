@@ -41,6 +41,7 @@ export default function Hero() {
 
   useEffect(() => {
     return () => stopScrolling()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const { language } = useLanguage()
@@ -61,9 +62,13 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative min-h-[90vh] bg-background flex items-center justify-center overflow-hidden py-20">
+    // 👇 ELIMINAMOS 'bg-background' DE AQUÍ 👇
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-20">
+      
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background pointer-events-none" />
+      {/* 👇 ELIMINAMOS EL DIV DEL GRADIENTE SÓLIDO QUE ESTABA AQUÍ 👇 */}
+      
+      {/* Mantenemos tu textura de puntos porque le da un toque genial y tiene opacity-5 (es transparente) */}
       <div
         className="absolute inset-0 opacity-5 pointer-events-none"
         style={{

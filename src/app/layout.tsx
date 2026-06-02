@@ -28,11 +28,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-surface-50`}>
+    <html lang="es" className="dark" suppressHydrationWarning>
+      <body 
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground relative overflow-x-hidden bg-grain`}
+      >
+        {/* Fondo animado de Shadcn */}
+        <div className="shadow-glow"></div>
+
         <LanguageProvider>
-        {children}
-        <LanguageToggle />
+          {/* 👇 AQUÍ ESTÁ EL CAMBIO: agregamos !fixed y !z-[9999] 👇 */}
+          <div className="!fixed top-6 right-6 !z-[9999]">
+            <LanguageToggle />
+          </div>
+          
+          {children}
         </LanguageProvider>
       </body>
     </html>
