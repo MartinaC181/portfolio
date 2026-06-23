@@ -39,7 +39,7 @@ export default function Moments() {
   }
 
   return (
-    <section className="bg-background">
+    <section className="relative">
       <div className="w-full px-6 md:px-8 py-20 flex flex-col">
 
         {/* Encabezado */}

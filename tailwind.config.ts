@@ -10,8 +10,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#E11D48',
-        'primary-hover': '#BE123C',
+        primary: '#8A1822',
+        'primary-hover': '#8A1822',
         'primary-light': '#FDA4AF',
         background: '#09090B',
         'background-lighter': '#18181B',

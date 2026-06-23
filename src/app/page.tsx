@@ -13,15 +13,8 @@ export default function Home() {
         <Hero />
         <Projects />
         <Skills />
-        
-        {/* Moments + Contact Grid */}
-        <div className="max-w-7xl mx-auto px-6 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <Contact />
-            <Moments /> 
-          </div>
-        </div>
       </div>
+      <Contact />
       <Footer />
       <ScrollToTop />
     </main>

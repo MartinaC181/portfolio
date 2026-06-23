@@ -16,7 +16,7 @@ export default function SkillCard({ data }: { data: SkillCardProps }) {
       className="p-8 bg-background-lighter border border-surface-200 rounded-lg transition-all duration-300 group hover:border-primary cursor-pointer h-full"
     >
       {/* Encabezado */}
-      <h3 className="text-2xl font-bold text-primary mb-6 group-hover:text-primary-light transition-colors">
+      <h3 className="text-2xl font-bold text-surface-50 mb-6 transition-colors">
         {data.category}
       </h3>
 
@@ -25,7 +25,7 @@ export default function SkillCard({ data }: { data: SkillCardProps }) {
         {data.skills.map((skill, index) => (
           <span
             key={index}
-            className="px-4 py-2 bg-background rounded-full text-surface-50 text-sm font-medium border border-surface-200 group-hover:border-primary group-hover:text-primary transition-all duration-300"
+            className="px-4 py-2 bg-background rounded-full text-surface-50 text-sm font-medium border border-primary transition-all duration-300 group-hover:text-primary"
           >
             {skill}
           </span>

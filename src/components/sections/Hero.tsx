@@ -122,7 +122,7 @@ export default function Hero() {
               whileHover={{ y: -4, scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               variants={buttonVariants}
-              className="px-8 py-3 text-white hover:text-primary font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer"
+              className="px-8 py-3 text-primary hover:text-primary-hover font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer"
             >
               {t[language].projectsBtn}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

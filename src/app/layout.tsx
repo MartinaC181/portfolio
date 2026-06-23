@@ -30,19 +30,21 @@ export default function RootLayout({
   return (
     <html lang="es" className="dark" suppressHydrationWarning>
       <body 
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground relative overflow-x-hidden bg-grain`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground relative overflow-x-hidden`}
       >
-        {/* Fondo animado de Shadcn */}
-        <div className="shadow-glow"></div>
+        <div className="bg-grain min-h-screen">
+          {/* Fondo animado de Shadcn */}
+          <div className="shadow-glow"></div>
 
-        <LanguageProvider>
-          {/* 👇 AQUÍ ESTÁ EL CAMBIO: agregamos !fixed y !z-[9999] 👇 */}
-          <div className="!fixed top-6 right-6 !z-[9999]">
-            <LanguageToggle />
-          </div>
-          
-          {children}
-        </LanguageProvider>
+          <LanguageProvider>
+            {/* 👇 AQUÍ ESTÁ EL CAMBIO: agregamos !fixed y !z-[9999] 👇 */}
+            <div className="!fixed top-6 right-6 !z-[9999]">
+              <LanguageToggle />
+            </div>
+            
+            {children}
+          </LanguageProvider>
+        </div>
       </body>
     </html>
   );

@@ -108,8 +108,9 @@ html {
   left: 2px;
   width: 100%;
   height: 100%;
-  text-shadow: -2px 0 #cf6a6a; 
-  background: hsl(var(--background));
+  text-shadow: -2px 0 #cf6a6a;
+  color: inherit;
+  background: transparent;
   overflow: hidden;
   clip: rect(0, 900px, 0, 0);
   animation: noise-anim-2 3s infinite linear alternate-reverse;
@@ -122,8 +123,9 @@ html {
   left: -2px;
   width: 100%;
   height: 100%;
-  text-shadow: -2px 0 hsl(var(--primary)); 
-  background: hsl(var(--background));
+  text-shadow: -2px 0 hsl(var(--primary));
+  color: inherit;
+  background: transparent;
   overflow: hidden;
   clip: rect(0, 900px, 0, 0);
   animation: noise-anim 2s infinite linear alternate-reverse;
@@ -186,7 +188,7 @@ html {
   content: '';
   position: fixed;
   inset: 0;
-  z-index: 1;
+  z-index: -1;
   pointer-events: none;
   background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOSIgbnVtT2N0YXZlcz0iNCIgcmVzdWx0PSJub2lzZSIvPjxmZUNvbG9yTWF0cml4IGluPSJub2lzZSIgdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjZmZmZmZmIiBmaWx0ZXI9InVybCgjbm9pc2UpIiBvcGFjaXR5PSIwLjA1Ii8+PC9zdmc+');
   background-attachment: fixed;
@@ -202,14 +204,15 @@ html {
 
 /* ✨ SHADCN LANDING PAGE GLOW EFFECT ✨ */
 .shadow-glow {
-  position: absolute;
+  position: fixed;
+  top: 20vh;
+  right: 10vw;
   background: hsl(var(--primary) / 0%);
   border-radius: 24px;
   rotate: 35deg;
   z-index: -1;
-  width: 260px;
-  top: 200px;
-  height: 400px;
+  width: 320px;
+  height: 480px;
   filter: blur(150px);
   will-change: transform;
   animation: shadow-slide infinite 4s linear alternate;
