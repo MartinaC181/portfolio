@@ -8,13 +8,6 @@ export const moments = {
       type: "image",
     },
     {
-      id: 6,
-      title: "Entrega de Certificados",
-      category: "Bootcamp",
-      src: "/moments/Bootcamp4.jpg",
-      type: "image",
-    },
-    {
       id: 8,
       title: "Progreso en el Camino",
       category: "Bootcamp",

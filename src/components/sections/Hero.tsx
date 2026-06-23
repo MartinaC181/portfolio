@@ -41,6 +41,7 @@ export default function Hero() {
 
   useEffect(() => {
     return () => stopScrolling()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const { language } = useLanguage()
@@ -61,9 +62,13 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative min-h-[90vh] bg-background flex items-center justify-center overflow-hidden py-20">
+    // 👇 ELIMINAMOS 'bg-background' DE AQUÍ 👇
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-20">
+      
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background pointer-events-none" />
+      {/* 👇 ELIMINAMOS EL DIV DEL GRADIENTE SÓLIDO QUE ESTABA AQUÍ 👇 */}
+      
+      {/* Mantenemos tu textura de puntos porque le da un toque genial y tiene opacity-5 (es transparente) */}
       <div
         className="absolute inset-0 opacity-5 pointer-events-none"
         style={{
@@ -117,7 +122,7 @@ export default function Hero() {
               whileHover={{ y: -4, scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               variants={buttonVariants}
-              className="px-8 py-3 text-white hover:text-primary font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer"
+              className="px-8 py-3 text-primary hover:text-primary-hover font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer"
             >
               {t[language].projectsBtn}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

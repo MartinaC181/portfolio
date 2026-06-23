@@ -127,21 +127,14 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="relative bg-background overflow-hidden">
+    <section id="contact" className="relative overflow-hidden">
       {/* Sakura Victory Animation */}
       <AnimatePresence>
         {showSakura && <SakuraFall />}
       </AnimatePresence>
 
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background-lighter pointer-events-none" />
-      <div
-        className="absolute inset-0 opacity-5 pointer-events-none"
-        style={{
-          backgroundImage: 'radial-gradient(circle, #aaa1a2 1px, transparent 1px)',
-          backgroundSize: '50px 50px',
-        }}
-      />
+      {/* Eliminado el fondo interno para heredar el background global */}
 
       {/* Content */}
       <motion.div

@@ -39,13 +39,12 @@ export default function Moments() {
   }
 
   return (
-    <section className="bg-background">
+    <section className="relative">
       <div className="w-full px-6 md:px-8 py-20 flex flex-col">
 
         {/* Encabezado */}
         <div className="mb-12 text-center">
           <h3 className="text-3xl font-bold text-surface-50 flex items-center justify-center gap-3 mb-4">
-            <span className="w-3 h-3 bg-primary rounded-full animate-pulse" />
             {t[language].title}
           </h3>
           <p className="text-base md:text-lg text-surface-100">

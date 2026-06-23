@@ -16,7 +16,7 @@ export default function Skills() {
   }
 
   return (
-    <section className="py-20 px-6 md:px-8 bg-background">
+    <section className="relative py-20 px-6 md:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Título de Sección */}
         <motion.div

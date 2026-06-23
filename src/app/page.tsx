@@ -8,20 +8,13 @@ import Contact from '@/components/sections/Contact'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background text-surface-50">
+    <main className="flex min-h-screen flex-col items-center justify-between p-30 pt-0">
       <div className="space-y-24 pb-24">
         <Hero />
         <Projects />
         <Skills />
-        
-        {/* Moments + Contact Grid */}
-        <div className="max-w-7xl mx-auto px-6 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <Contact />
-            {/* <Moments /> */}
-          </div>
-        </div>
       </div>
+      <Contact />
       <Footer />
       <ScrollToTop />
     </main>
