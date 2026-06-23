@@ -2,7 +2,7 @@
 
 Portfolio personal moderno y totalmente bilingüe (ES/EN) que muestra proyectos, habilidades y experiencia como Desarrolladora Full Stack. Diseñado con tecnologías modernas, animaciones fluidas y una experiencia de usuario optimizada.
 
-**🔗 Demo en vivo:** https://martinacanteros.vercel.app/
+**🔗 Demo:** https://martinacanteros.vercel.app
 
 ---
 
