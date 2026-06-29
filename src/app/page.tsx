@@ -1,9 +1,8 @@
 import Hero from '@/components/sections/Hero'
 import Skills from '@/components/sections/Skills'
 import Projects from '@/components/sections/Projects'
-import Footer from '@/components/layout/Footer'
 import ScrollToTop from '@/components/ui/ScrollToTop'
-import Moments from '@/components/sections/Moments'
+import Footer from '@/components/sections/Footer'
 import Contact from '@/components/sections/Contact'
 
 export default function Home() {
@@ -14,8 +13,14 @@ export default function Home() {
         <Projects />
         <Skills />
       </div>
-      <Contact />
-      <Footer />
+      <div className="w-full lg:flex lg:flex-row lg:gap-8">
+        <div className="lg:w-1/2">
+          <Contact />
+        </div>
+        <div className="lg:w-1/2">
+          <Footer />
+        </div>
+      </div>
       <ScrollToTop />
     </main>
   );

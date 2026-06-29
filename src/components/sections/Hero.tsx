@@ -96,7 +96,7 @@ export default function Hero() {
             Abigail{" "}
             <span className="inline-flex items-baseline whitespace-nowrap">
               Canter
-              <CatEasterEgg className="w-[0.8em] h-[0.8em] ml-[0.05em] -mr-[0.15em]" />
+              <CatEasterEgg className="w-[0.75em] h-[0.69em] mx-[0.01em] translate-y-[0.05em]" />
               s
             </span>
           </motion.h1>

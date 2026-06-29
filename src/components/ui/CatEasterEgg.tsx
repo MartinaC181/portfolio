@@ -25,7 +25,7 @@ export default function CatEasterEgg({ className = '' }: CatEasterEggProps) {
 
   return (
     <motion.div
-      className={`relative inline-flex items-baseline translate-y-[0.1em] -translate-x-[0.04em] ${className}`}
+      className={`relative inline-flex items-baseline ${className}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.5 }}
@@ -33,7 +33,7 @@ export default function CatEasterEgg({ className = '' }: CatEasterEggProps) {
       {/* Contenedor Principal */}
       <motion.div
         // 👇 NOTA: Le puse w-12 h-12 como tamaño por defecto, ajustalo como quieras
-        className="relative cursor-pointer inline-flex items-center justify-center w-12 h-12"
+        className="relative cursor-pointer inline-flex items-center justify-center w-full h-full"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         animate={isHovered ? { y: '-10%' } : { y: '0%' }}
