@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { Github, Linkedin, Mail } from 'lucide-react'
 import { socialLinks } from '@/data/profile'
-// 👇 Importamos el contexto de idioma
+
 import { useLanguage } from '@/context/LanguageContext'
 
 export default function Footer() {
@@ -27,9 +27,9 @@ export default function Footer() {
   }
 
   return (
-    <footer className="border-t border-surface-200 bg-background-lighter pt-16 flex flex-col items-center">
+    <footer className="bg-background-lighter pt-16 lg:pt-0 lg:h-full lg:justify-center lg:pl-8 pb-12 flex flex-col items-center">
       
-      {/* --- Contenido Principal Centrado --- */}
+      {/* --- Contenido Principal --- */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -76,19 +76,6 @@ export default function Footer() {
           </a>
         </div>
       </motion.div>
-
-      {/* --- Barra Inferior de Copyright --- */}
-      <div className="w-full bg-background border-t border-white/5 mt-16 py-6">
-        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-2 md:gap-0">
-          <p className="text-sm text-surface-100">
-            Copyright © {currentYear} <span className="text-primary font-semibold">Martina Canteros</span>. {t[language].rights}
-          </p>
-          <p className="text-xs text-surface-100/50">
-            {t[language].built}
-          </p>
-        </div>
-      </div>
-      
     </footer>
   )
 }

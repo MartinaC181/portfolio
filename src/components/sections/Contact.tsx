@@ -31,7 +31,7 @@ export default function Contact() {
   const t = {
     es: {
       title: "Contactame",
-      subtitle: "Estoy siempre abierta a nuevas oportunidades y colaboraciones.",
+      subtitle: "Siempre estoy abierto a nuevas oportunidades y colaboraciones.",
       nameLabel: "Nombre",
       namePlaceholder: "Tu nombre",
       emailLabel: "Correo Electrónico",
@@ -149,9 +149,6 @@ export default function Contact() {
           <h2 className="text-3xl font-bold text-surface-50 mb-4">
             {t[language].title}
           </h2>
-          <p className="text-base md:text-lg text-surface-100">
-            {t[language].subtitle}
-          </p>
         </motion.div>
 
         {/* Form */}

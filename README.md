@@ -139,50 +139,6 @@ src/
 | `npm start` | Ejecuta la aplicación en producción |
 | `npm run lint` | Ejecuta ESLint |
 
----
-
-## 📊 Proyectos Destacados
-
-### 1. **FleteStereo** 
-Aplicación web para gestión de fletes/mudanzas con dashboard administrativo.
-- **Tech:** Next.js, React, TypeScript, Tailwind, shadcn-ui, TanStack Query, Supabase
-- [GitHub](https://github.com/MartinaC181/project-fletestereo) | [Demo](https://project-fletestereo.vercel.app/)
-
-### 2. **IberApp**
-App "traductor cultural" del Noreste Argentino con experiencias turísticas personalizadas con IA.
-- **Tech:** React, TypeScript, Vite, Tailwind, Supabase, Google Gemini AI
-- [GitHub](https://github.com/teorisso/iberapp)
-
-### 3. **MiGymApp**
-Aplicación móvil para gestión de entrenamientos con navegación fluida.
-- **Tech:** React Native, Expo, TypeScript, NativeWind, i18n, Lottie
-- [GitHub](https://github.com/MartinaC181/MiGymApp)
-
----
-
-## 💻 Habilidades Técnicas
-
-### Frontend & Mobile
-React · Next.js · React Native · TypeScript · Tailwind CSS
-
-### Backend & Servicios
-Node.js · Express · .NET Core · Supabase · Firebase
-
-### Data & IA
-Python · Pandas · Jupyter · Google Gemini AI
-
-### Herramientas
-Git · GitHub · Docker · Postman
-
----
-
-## 📚 Educación
-
-- **Tecnicatura Universitaria en Programación** - UTN FRRe (2024-2025)
-- **Node.js + React Bootcamp** (2024)
-- **Diplomatura en Ciencia de Datos e IA** - UNSAM (2023)
-
----
 
 ## 🔗 Enlaces de Contacto
 
