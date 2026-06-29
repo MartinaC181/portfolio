@@ -63,7 +63,7 @@ export default function Hero() {
 
   return (
     // 👇 ELIMINAMOS 'bg-background' DE AQUÍ 👇
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-20">
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-20 md:py-0">
       
       {/* Background Effects */}
       {/* 👇 ELIMINAMOS EL DIV DEL GRADIENTE SÓLIDO QUE ESTABA AQUÍ 👇 */}

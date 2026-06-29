@@ -59,14 +59,14 @@ export default function ProfileCard() {
         
         {/* 🔴 FRENTE DE LA TARJETA 🔴 */}
         {/* Padding reducido a p-6 */}
-        <div className="w-full h-full p-8 bg-background/80 backdrop-blur-sm border border-surface-200 rounded-2xl [backface-visibility:hidden] flex flex-col justify-center">
+        <div className="w-full h-full p-8 md:p-6 bg-background/80 backdrop-blur-sm border border-surface-200 rounded-2xl [backface-visibility:hidden] flex flex-col justify-center">
           
           <div className="absolute top-5 right-5 flex items-center gap-1.5 text-surface-100 opacity-60 group-hover:opacity-100 transition-opacity">
             <span className="text-[10px] uppercase tracking-wider">{t[language].flipHint}</span>
             <RefreshCcw className="w-3.5 h-3.5" />
           </div>
 
-          <div className="text-center mb-8 mt-4">
+          <div className="text-center mb-8 mt-4 md:mb-6 md:mt-2">
             <h3 className="text-2xl font-bold text-surface-50">{t[language].title}</h3>
           </div>
 
@@ -201,7 +201,7 @@ export default function ProfileCard() {
           </div>
 
           {/* Desktop: grid completo */}
-          <div className="hidden md:grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6">
+          <div className="hidden md:grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
             {/* Bio */}
             <div>
               <h4 className="text-xl font-bold text-surface-50 mb-4">{t[language].subtitle}</h4>
