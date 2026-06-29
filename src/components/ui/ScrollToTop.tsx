@@ -13,7 +13,7 @@ export default function ScrollToTop() {
       onClick={scrollToTop}
       whileHover={{ y: -4, scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      className="fixed bottom-8 right-8 p-3 rounded-lg border-2 border-surface-200 text-surface-100 hover:text-primary hover:border-primary transition-all duration-300 z-50"
+      className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 p-3 rounded-lg border-2 border-surface-200 text-surface-100 hover:text-primary hover:border-primary transition-all duration-300 z-50"
       aria-label="Volver arriba"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}

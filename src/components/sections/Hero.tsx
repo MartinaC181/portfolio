@@ -79,7 +79,7 @@ export default function Hero() {
 
       {/* Main Grid */}
       <motion.div
-        className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+        className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -91,7 +91,7 @@ export default function Hero() {
             {t[language].greeting}
           </motion.p>
 
-          <motion.h1 variants={itemVariants} className="text-6xl md:text-7xl font-bold text-surface-50 leading-tight">
+          <motion.h1 variants={itemVariants} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-surface-50 leading-tight">
             Martina <br />
             Abigail{" "}
             <span className="inline-flex items-baseline whitespace-nowrap">

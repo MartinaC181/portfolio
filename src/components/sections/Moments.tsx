@@ -53,7 +53,7 @@ export default function Moments() {
         </div>
 
         {/* Carousel Container */}
-        <div className="w-full mx-auto max-w-5xl mt-32">
+        <div className="w-full mx-auto max-w-5xl mt-12 lg:mt-32">
           <Carousel
             opts={{ loop: true }}
             plugins={[plugin.current]}

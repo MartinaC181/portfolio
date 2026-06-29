@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { projectsData } from '@/data/projects'
@@ -24,13 +24,26 @@ export default function Projects() {
     }
   }
 
+  const [projectsPerPage, setProjectsPerPage] = useState(2)
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 768px)')
+    setProjectsPerPage(mq.matches ? 2 : 1)
+    const handler = (e: MediaQueryListEvent) => setProjectsPerPage(e.matches ? 2 : 1)
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
+
   const projects = projectsData[language]
-  const projectsPerPage = 2
   const totalPages = Math.ceil(projects.length / projectsPerPage)
   const currentProjects = projects.slice(
     currentPage * projectsPerPage,
     (currentPage + 1) * projectsPerPage
   )
+
+  useEffect(() => {
+    setCurrentPage((prev) => Math.min(prev, totalPages - 1))
+  }, [totalPages])
 
   const handlePrevious = () => {
     setCurrentPage((prev) => Math.max(0, prev - 1))

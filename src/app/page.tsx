@@ -7,8 +7,8 @@ import Contact from '@/components/sections/Contact'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-30 pt-0">
-      <div className="space-y-24 pb-24">
+    <main className="flex min-h-screen flex-col items-center justify-between p-4 sm:p-8 md:p-16 lg:p-30 pt-0">
+      <div className="space-y-16 lg:space-y-24 pb-24">
         <Hero />
         <Projects />
         <Skills />

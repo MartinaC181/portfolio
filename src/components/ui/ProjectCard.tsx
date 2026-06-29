@@ -52,7 +52,7 @@ export default function ProjectCard({ project }: { project: ProjectProps }) {
       <motion.div
         variants={itemVariants}
         whileHover={{ y: -8, borderColor: '#E11D48' }}
-        className="group bg-background-lighter border border-surface-200 rounded-lg transition-all duration-300 hover:border-primary overflow-hidden flex flex-col min-h-[420px] h-full"
+        className="group bg-background-lighter border border-surface-200 rounded-lg transition-all duration-300 hover:border-primary overflow-hidden flex flex-col min-h-[350px] sm:min-h-[420px] h-full"
       >
         <DialogTrigger asChild>
           <div className="cursor-pointer flex-1">
